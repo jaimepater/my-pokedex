@@ -5,9 +5,7 @@ export async function getPokemons(
   limit: number = 20
 ): Promise<PokemonListResponse> {
   // Call our internal API instead of external
-  const response = await fetch(
-    `/api/pokemons?offset=${offset}&limit=${limit}`
-  );
+  const response = await fetch(`/api/pokemons?offset=${offset}&limit=${limit}`);
   if (!response.ok) {
     throw new Error('Failed to fetch pokemons');
   }

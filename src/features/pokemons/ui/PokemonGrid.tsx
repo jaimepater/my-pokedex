@@ -10,8 +10,14 @@ import { AlertCircle } from 'lucide-react';
 import { usePokemonFilterSort } from '../hooks/usePokemonFilterSort';
 
 export function PokemonGrid() {
-  const { pokemons: rawPokemons, isError, isLoadingMore, isReachingEnd, size, setSize } =
-    usePokemons();
+  const {
+    pokemons: rawPokemons,
+    isError,
+    isLoadingMore,
+    isReachingEnd,
+    size,
+    setSize,
+  } = usePokemons();
 
   const pokemons = usePokemonFilterSort(rawPokemons);
 
@@ -36,13 +42,18 @@ export function PokemonGrid() {
     );
   }
 
-  if (pokemons.length === 0 && !isInitialLoading && !isLoadingMore && rawPokemons.length > 0) {
+  if (
+    pokemons.length === 0 &&
+    !isInitialLoading &&
+    !isLoadingMore &&
+    rawPokemons.length > 0
+  ) {
     return (
       <div className="text-center py-20 text-gray-500">
         <p className="text-xl">No Pokémon found.</p>
         <p className="text-sm">Try adjusting your search terms.</p>
       </div>
-    )
+    );
   }
 
   return (

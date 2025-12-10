@@ -22,9 +22,12 @@ export function PokemonListPage() {
             <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" />
             <path d="M2.5 12h19" />
             <path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-            <path d="M12 22v-6" /> {/* Adjusted to look more like a simplified pokeball */}
+            <path d="M12 22v-6" />{' '}
+            {/* Adjusted to look more like a simplified pokeball */}
           </svg>
-          <h1 className="text-2xl font-bold text-white tracking-tight">Pokédex</h1>
+          <h1 className="text-2xl font-bold text-white tracking-tight">
+            Pokédex
+          </h1>
         </div>
 
         <div className="flex items-center gap-3">
