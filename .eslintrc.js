@@ -1,0 +1,16 @@
+module.exports = {
+    root: true,
+    extends: [
+        'next/core-web-vitals',
+        'plugin:@typescript-eslint/recommended',
+        'prettier',
+    ],
+    parser: '@typescript-eslint/parser',
+    plugins: ['@typescript-eslint'],
+    rules: {
+        '@typescript-eslint/no-unused-vars': 'error',
+        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+    },
+};
