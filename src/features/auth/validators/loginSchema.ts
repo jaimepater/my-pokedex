@@ -5,8 +5,8 @@ import { z } from 'zod';
  * Used for both client-side and server-side validation
  */
 export const loginSchema = z.object({
-    username: z.string().min(1, 'Username is required'),
-    password: z.string().min(1, 'Password is required'),
+  username: z.string().min(1, 'Username is required'),
+  password: z.string().min(1, 'Password is required'),
 });
 
 /**

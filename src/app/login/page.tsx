@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { LoginPage } from '@/features/auth/ui/LoginPage';
 
 export const metadata: Metadata = {
-    title: 'Login | My Pokédex',
-    description: 'Sign in to access your Pokédex',
+  title: 'Login | My Pokédex',
+  description: 'Sign in to access your Pokédex',
 };
 
 /**
@@ -11,5 +11,5 @@ export const metadata: Metadata = {
  * Renders the LoginPage component from the auth feature
  */
 export default function Page() {
-    return <LoginPage />;
+  return <LoginPage />;
 }

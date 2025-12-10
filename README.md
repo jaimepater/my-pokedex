@@ -35,10 +35,9 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+# Generative AI Prompts
 
-# Generative AI Prompts 
-
-## Login Screen 
+## Login Screen
 
 I want you to generate the entire Login feature for a Next.js application using the following stack and rules. Follow everything exactly and produce clean, fully typed, production-grade code. The project must use a Feature-Based (domain/feature) folder architecture (i.e. each feature has its own folder with UI, hooks, services, types, validators, tests, etc.).
 
@@ -77,18 +76,18 @@ GOAL: Build the full Login feature
 You must implement the following using Feature-Based structure (place files under src/features/auth/... unless otherwise specified):
 
 REQUIRED FILES & LOCATIONS (feature-based)
-src/features/auth/ui/LoginPage.tsx            // page wrapper if needed
-src/app/login/page.tsx                        // route that composes the feature UI
-src/features/auth/ui/LoginForm.tsx            // Client component form
-src/features/auth/hooks/useLogin.ts           // hook handling submit logic
-src/features/auth/services/api.ts             // fetch wrapper for /api/login
-src/features/auth/validators/loginSchema.ts   // Zod schema and TS type
-src/features/auth/types.ts                    // TS types for auth feature
-src/features/auth/tests/LoginForm.test.tsx    // frontend tests (RTL + Jest)
-src/features/auth/tests/api.login.test.ts     // backend tests (Vitest + Supertest)
+src/features/auth/ui/LoginPage.tsx // page wrapper if needed
+src/app/login/page.tsx // route that composes the feature UI
+src/features/auth/ui/LoginForm.tsx // Client component form
+src/features/auth/hooks/useLogin.ts // hook handling submit logic
+src/features/auth/services/api.ts // fetch wrapper for /api/login
+src/features/auth/validators/loginSchema.ts // Zod schema and TS type
+src/features/auth/types.ts // TS types for auth feature
+src/features/auth/tests/LoginForm.test.tsx // frontend tests (RTL + Jest)
+src/features/auth/tests/api.login.test.ts // backend tests (Vitest + Supertest)
 
-app/api/login/route.ts                         // Next.js route handler for POST /api/login
-middleware.ts                                  // Next.js middleware protecting routes
+app/api/login/route.ts // Next.js route handler for POST /api/login
+middleware.ts // Next.js middleware protecting routes
 
 FEATURE SPECIFIC REQUIREMENTS
 
