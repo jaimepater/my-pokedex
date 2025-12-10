@@ -16,25 +16,25 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
     pokemon.sprites.front_default;
 
   return (
-    <Card className="overflow-visible bg-white border-0 shadow-md rounded-xl hover:shadow-xl transition-shadow duration-300 relative group">
-      <CardContent className="p-2 pb-0">
+    <Card className="overflow-hidden bg-white border-0 shadow-md rounded-xl hover:shadow-xl transition-shadow duration-300 relative group flex flex-col justify-between py-2 gap-2">
+      <CardContent className="flex-1 flex flex-col px-4">
         {/* ID Number Top Right */}
-        <div className="flex justify-end pr-2 pt-1">
+        <div className="flex justify-end pr-1 pt-1">
           <span className="text-[10px] text-gray-400 font-medium">
             {formatId(pokemon.id)}
           </span>
         </div>
 
         {/* Image Container */}
-        <div className="relative aspect-square w-full -mt-2 mb-2 flex items-center justify-center">
+        <div className="relative aspect-square w-full flex-1 flex items-center justify-center ">
           {imageUrl ? (
-            <div className="relative w-[85%] h-[85%] transition-transform duration-300 group-hover:scale-110">
+            <div className="relative w-full h-full transition-transform duration-300 group-hover:scale-110">
               <Image
                 src={imageUrl}
                 alt={pokemon.name}
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 768px) 33vw, (max-width: 1200px) 20vw, 15vw"
                 priority={pokemon.id <= 20}
               />
             </div>
@@ -47,7 +47,7 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
       </CardContent>
 
       {/* Name Footer with Background */}
-      <div className="bg-[#f0f0f0] rounded-[7px] mx-1 mb-1 py-3 text-center">
+      <div className="text-center">
         <h3 className="text-sm font-medium capitalize text-gray-800 truncate px-1">
           {pokemon.name}
         </h3>

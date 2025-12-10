@@ -24,16 +24,12 @@ export function PokemonSortMenu() {
     const [open, setOpen] = useState(false);
 
     // Map complex sort keys to simple "Number" vs "Name" options for the radio group logic
-    // "Number" = id_asc (or id_desc)
-    // "Name" = name_asc (or name_desc)
     const getSortType = (sort: string) => sort.startsWith('name') ? 'name' : 'number';
     const [sortType, setSortType] = useState(getSortType(currentSort));
 
     const handleSortChange = (value: string) => {
         setSortType(value);
         // Determine exact sort param. Mockup implies strictly "Number" vs "Name".
-        // I will assume "Number" -> id_asc, "Name" -> name_asc for simplicity, 
-        // or preserve direction if we wanted to be fancy. Mockup is simple.
         const newSortParam = value === 'number' ? 'id_asc' : 'name_asc';
 
         const params = new URLSearchParams(searchParams);
@@ -53,7 +49,11 @@ export function PokemonSortMenu() {
                     className="w-10 h-10 rounded-full bg-white hover:bg-white/90 text-[#dc0a2d] p-0 shadow-sm"
                     variant="ghost"
                 >
-                    <Hash className="h-6 w-6" />
+                    {sortType === 'name' ? (
+                        <span className="text-xl font-bold leading-none underline decoration-2 underline-offset-2">A</span>
+                    ) : (
+                        <Hash className="h-6 w-6" />
+                    )}
                 </Button>
             </DialogTrigger>
             <DialogContent className="w-[300px] p-0 rounded-3xl overflow-hidden border-none gap-0">

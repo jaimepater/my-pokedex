@@ -7,8 +7,8 @@ export function PokemonListPage() {
   return (
     <div className="min-h-screen bg-[#dc0a2d] font-sans">
       {/* Red Header Area */}
-      <header className="px-6 pt-12 pb-6">
-        <div className="flex items-center gap-4 mb-6">
+      <header className="px-4 pt-4 pb-6">
+        <div className="flex items-center gap-4 mb-3">
           {/* Pokeball Icon (CSS or SVG) */}
           <svg
             viewBox="0 0 24 24"
@@ -24,7 +24,7 @@ export function PokemonListPage() {
             <path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
             <path d="M12 22v-6" /> {/* Adjusted to look more like a simplified pokeball */}
           </svg>
-          <h1 className="text-4xl font-bold text-white tracking-tight">Pokédex</h1>
+          <h1 className="text-2xl font-bold text-white tracking-tight">Pokédex</h1>
         </div>
 
         <div className="flex items-center gap-3">
@@ -36,7 +36,7 @@ export function PokemonListPage() {
       </header>
 
       {/* Main Card Container */}
-      <main className="bg-[#f7f7f7] min-h-[calc(100vh-180px)] rounded-t-[2.5rem] p-6 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+      <main className="bg-[#f7f7f7] min-h-[calc(100vh-180px)] rounded-t-[2.5rem] px-2 py-4 md:p-6 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] mx-auto max-w-[98%]">
         <PokemonGrid />
       </main>
     </div>
