@@ -46,7 +46,7 @@ export function PokemonDetailsHeader({
         <p className="font-bold text-md ">{formatId(id)}</p>
       </div>
 
-      <div className="relative z-10 mt-4">
+      <div className="relative z-10 mt-0">
         {image && (
           <Image
             src={image}

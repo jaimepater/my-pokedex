@@ -7,9 +7,7 @@ export function PokemonDetailsDescription({
 }: PokemonDetailsDescriptionProps) {
   return (
     <div className="px-6 mb-4 text-center">
-      <p className="text-muted-foreground leading-relaxed text-sm">
-        {description}
-      </p>
+      <p className="text-muted-foreground text-xs">{description}</p>
     </div>
   );
 }

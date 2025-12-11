@@ -24,7 +24,7 @@ export function PokemonDetailsStats({
     <div className="px-6 pb-6 w-full">
       <h2
         className={cn(
-          'text-center text-md font-bold mb-3 capitalize',
+          'text-center text-sm font-bold mb-3 capitalize',
           titleColorClass
         )}
       >

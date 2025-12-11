@@ -12,13 +12,13 @@ export function PokemonDetailsAbout({
   abilities,
 }: PokemonDetailsAboutProps) {
   return (
-    <div className="px-6 mb-6">
+    <div className="px-6 mb-4">
       <h2 className="text-center text-xl font-bold text-type-grass hidden">
         About
       </h2>
       <div className="grid grid-cols-3 gap-4 border-b border-gray-100 text-center divide-x divide-gray-200">
-        <div className="flex flex-col items-center justify-start gap-3 px-2">
-          <div className="flex items-center gap-2 text-foreground font-medium text-xs">
+        <div className="flex flex-col items-center justify-start gap-2 px-2">
+          <div className="flex items-center gap-3 text-foreground font-medium text-xs">
             <Weight className="w-4 h-4" />
             <span>{weight.toFixed(1).replace('.', ',')} kg</span>
           </div>
