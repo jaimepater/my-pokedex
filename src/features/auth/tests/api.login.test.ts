@@ -117,7 +117,9 @@ describe('POST /api/login', () => {
         .send({ username: 'admin', password: 'admin' })
         .expect(200);
 
-      const setCookieHeader = response.headers['set-cookie'];
+      const setCookieHeader = response.headers[
+        'set-cookie'
+      ] as unknown as string[];
       const tokenCookie = setCookieHeader.find((cookie: string) =>
         cookie.startsWith('token=')
       );
@@ -238,9 +240,11 @@ describe('POST /api/login', () => {
         .post('/api/login')
         .send({ username: 'admin', password: 'admin' })
         .expect(200);
-
-      const tokenCookie = response.headers['set-cookie'].find(
-        (cookie: string) => cookie.startsWith('token=')
+      const setCookieHeader = response.headers[
+        'set-cookie'
+      ] as unknown as string[];
+      const tokenCookie = setCookieHeader.find((cookie: string) =>
+        cookie.startsWith('token=')
       );
 
       expect(tokenCookie).toContain('HttpOnly');
@@ -251,9 +255,11 @@ describe('POST /api/login', () => {
         .post('/api/login')
         .send({ username: 'admin', password: 'admin' })
         .expect(200);
-
-      const tokenCookie = response.headers['set-cookie'].find(
-        (cookie: string) => cookie.startsWith('token=')
+      const setCookieHeader = response.headers[
+        'set-cookie'
+      ] as unknown as string[];
+      const tokenCookie = setCookieHeader.find((cookie: string) =>
+        cookie.startsWith('token=')
       );
 
       expect(tokenCookie).toContain('Secure');
@@ -264,9 +270,11 @@ describe('POST /api/login', () => {
         .post('/api/login')
         .send({ username: 'admin', password: 'admin' })
         .expect(200);
-
-      const tokenCookie = response.headers['set-cookie'].find(
-        (cookie: string) => cookie.startsWith('token=')
+      const setCookieHeader = response.headers[
+        'set-cookie'
+      ] as unknown as string[];
+      const tokenCookie = setCookieHeader.find((cookie: string) =>
+        cookie.startsWith('token=')
       );
 
       expect(tokenCookie).toContain('SameSite=strict');
@@ -277,9 +285,11 @@ describe('POST /api/login', () => {
         .post('/api/login')
         .send({ username: 'admin', password: 'admin' })
         .expect(200);
-
-      const tokenCookie = response.headers['set-cookie'].find(
-        (cookie: string) => cookie.startsWith('token=')
+      const setCookieHeader = response.headers[
+        'set-cookie'
+      ] as unknown as string[];
+      const tokenCookie = setCookieHeader.find((cookie: string) =>
+        cookie.startsWith('token=')
       );
 
       expect(tokenCookie).toContain('Path=/');

@@ -1,4 +1,5 @@
-import type { LoginRequest, LoginResponse, LoginErrorResponse } from '../types';
+import { LoginErrorResponse, LoginRequest } from '@/features/auth/types/login';
+import { LoginResponse } from '@/lib/shared/types/login';
 
 export async function loginApi(
   credentials: LoginRequest

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PokeBall } from '@/components/PokeBall';
-import { formatId } from '@/features/pokemon-details/utils/formatId';
+import { formatId } from '@/lib/shared/utils/formatId';
 
 interface PokemonDetailsHeaderProps {
   id: number;

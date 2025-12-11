@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import useSWRMutation from 'swr/mutation';
 import { loginApi } from '../services/api';
-import type { LoginRequest, UseLoginReturn } from '../types';
+import { LoginRequest, UseLoginReturn } from '@/features/auth/types/login';
 
 export function useLogin(): UseLoginReturn {
   const router = useRouter();

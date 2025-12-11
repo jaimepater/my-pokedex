@@ -1,4 +1,4 @@
-import { Pokemon, PokemonListResponse } from '../types/pokemon';
+import { Pokemon, PokemonListResponse } from '@/lib/shared/types/pokemon';
 
 export async function getPokemons(
   offset: number = 0,

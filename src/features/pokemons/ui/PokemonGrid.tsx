@@ -2,12 +2,12 @@
 
 import { usePokemons } from '../hooks/usePokemons';
 import { PokemonCard } from './PokemonCard';
-import { PokemonCardSkeleton } from '../components/PokemonCardSkeleton';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AlertCircle } from 'lucide-react';
 
 import { usePokemonFilterSort } from '../hooks/usePokemonFilterSort';
+import { PokemonCardSkeleton } from '@/features/pokemons/ui/PokemonCardSkeleton';
 
 export function PokemonGrid() {
   const {

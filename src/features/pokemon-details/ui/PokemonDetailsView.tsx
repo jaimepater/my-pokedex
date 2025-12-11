@@ -12,7 +12,7 @@ import { typeBackgrounds } from '@/features/pokemon-details/utils/colors';
 import { cn } from '@/lib/utils';
 import useSWR from 'swr';
 import { PokemonDetails } from '@/lib/shared/types/pokemon';
-import { getPokemonDetails } from '@/features/pokemon-details/services/client';
+import { getPokemonDetails } from '@/features/pokemon-details/services/api';
 
 interface PokemonDetailsViewProps {
   id: string;

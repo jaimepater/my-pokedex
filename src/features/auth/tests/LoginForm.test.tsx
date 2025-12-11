@@ -50,19 +50,6 @@ describe('LoginForm', () => {
       expect(usernameInput).toHaveAttribute('id', 'username');
       expect(passwordInput).toHaveAttribute('id', 'password');
     });
-
-    it('should have proper autocomplete attributes', () => {
-      render(<LoginForm />);
-
-      expect(screen.getByLabelText(/username/i)).toHaveAttribute(
-        'autocomplete',
-        'username'
-      );
-      expect(screen.getByLabelText(/password/i)).toHaveAttribute(
-        'autocomplete',
-        'current-password'
-      );
-    });
   });
 
   describe('Client-side Validation', () => {

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { randomUUID } from 'crypto';
 import { loginSchema } from '@/features/auth/validators/loginSchema';
 import { z } from 'zod';
+import { LoginResponse } from '@/lib/shared/types/login';
 
 export async function POST(request: NextRequest) {
   try {
@@ -34,7 +35,10 @@ export async function POST(request: NextRequest) {
     const token = randomUUID();
 
     // Create response with success flag
-    const response = NextResponse.json({ success: true }, { status: 200 });
+    const response: NextResponse<LoginResponse> = NextResponse.json(
+      { success: true },
+      { status: 200 }
+    );
 
     // Set HttpOnly cookie with secure attributes
     response.cookies.set('token', token, {
