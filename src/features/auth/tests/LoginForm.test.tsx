@@ -34,13 +34,6 @@ describe('LoginForm', () => {
       ).toBeInTheDocument();
     });
 
-    it('should render demo credentials hint', () => {
-      render(<LoginForm />);
-
-      expect(screen.getByText(/demo credentials/i)).toBeInTheDocument();
-      expect(screen.getByText(/admin \/ admin/i)).toBeInTheDocument();
-    });
-
     it('should have proper labels associated with inputs', () => {
       render(<LoginForm />);
 

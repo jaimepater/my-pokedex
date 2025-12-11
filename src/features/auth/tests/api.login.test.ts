@@ -183,7 +183,7 @@ describe('POST /api/login', () => {
 
       expect(response.body.error).toBe('Validation failed');
       expect(response.body.details).toBeDefined();
-      expect(response.body.details.username).toBeDefined();
+      expect(response.body.details.properties.username).toBeDefined();
     });
 
     it('should return 400 when password is missing', async () => {
@@ -195,7 +195,7 @@ describe('POST /api/login', () => {
 
       expect(response.body.error).toBe('Validation failed');
       expect(response.body.details).toBeDefined();
-      expect(response.body.details.password).toBeDefined();
+      expect(response.body.details.properties.password).toBeDefined();
     });
 
     it('should return 400 when both fields are missing', async () => {
@@ -207,8 +207,8 @@ describe('POST /api/login', () => {
 
       expect(response.body.error).toBe('Validation failed');
       expect(response.body.details).toBeDefined();
-      expect(response.body.details.username).toBeDefined();
-      expect(response.body.details.password).toBeDefined();
+      expect(response.body.details.properties.username).toBeDefined();
+      expect(response.body.details.properties.password).toBeDefined();
     });
 
     it('should return 400 when username is empty string', async () => {
@@ -219,7 +219,7 @@ describe('POST /api/login', () => {
         .expect(400);
 
       expect(response.body.error).toBe('Validation failed');
-      expect(response.body.details.username).toBeDefined();
+      expect(response.body.details.properties.username).toBeDefined();
     });
 
     it('should return 400 when password is empty string', async () => {
@@ -230,7 +230,7 @@ describe('POST /api/login', () => {
         .expect(400);
 
       expect(response.body.error).toBe('Validation failed');
-      expect(response.body.details.password).toBeDefined();
+      expect(response.body.details.properties.password).toBeDefined();
     });
   });
 

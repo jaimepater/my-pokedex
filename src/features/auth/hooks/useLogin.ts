@@ -22,7 +22,11 @@ export function useLogin(): UseLoginReturn {
 
   return {
     login: async (credentials: LoginRequest) => {
-      await trigger(credentials);
+      try {
+        await trigger(credentials);
+      } catch (e) {
+        // Error is handled by SWR state `error` property
+      }
     },
     isLoading: isMutating,
     error: error
