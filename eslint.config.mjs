@@ -74,7 +74,10 @@ export default [
     ],
   },
   {
-    files: ['**/*.mjs', '**/*.cjs', '**/*.js', '**/*.json '],
+    files: ['**/*.mjs', '**/*.cjs', '**/*.js'],
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node },
+    },
     plugins: {
       prettier,
     },
