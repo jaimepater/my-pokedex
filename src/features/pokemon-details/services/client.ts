@@ -1,4 +1,4 @@
-import { PokemonDetails } from '../types';
+import { PokemonDetails } from '@/lib/shared/types/pokemon';
 
 export const getPokemonDetails = async (
   id: string

@@ -1,38 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { PokemonDetails } from '@/features/pokemon-details/types';
-
-interface PokeApiType {
-  type: {
-    name: string;
-  };
-}
-
-interface PokeApiAbility {
-  ability: {
-    name: string;
-  };
-  is_hidden: boolean;
-}
-
-interface PokeApiStat {
-  base_stat: number;
-  stat: {
-    name: string;
-  };
-}
-
-interface PokeApiFlavorText {
-  flavor_text: string;
-  language: {
-    name: string;
-  };
-  version: {
-    name: string;
-  };
-}
+import {
+  PokeApiAbility,
+  PokeApiFlavorText,
+  PokeApiStat,
+  PokeApiType,
+  PokemonDetails,
+} from '@/lib/shared/types/pokemon';
 
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
@@ -45,7 +21,6 @@ export async function GET(
   }
 
   try {
-    // Fetch core data and species data in parallel
     const [pokemonRes, speciesRes] = await Promise.all([
       fetch(`https://pokeapi.co/api/v2/pokemon/${id}`),
       fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`),

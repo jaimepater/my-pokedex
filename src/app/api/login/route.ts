@@ -1,11 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { randomUUID } from 'crypto';
 import { loginSchema } from '@/features/auth/validators/loginSchema';
+import { z } from 'zod';
 
-/**
- * POST /api/login
- * Handles user authentication and sets HttpOnly cookie
- */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -17,7 +14,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error: 'Validation failed',
-          details: result.error.flatten().fieldErrors,
+          details: z.treeifyError(result.error),
         },
         { status: 400 }
       );

@@ -19,7 +19,6 @@ export async function GET(request: Request) {
 
     const listData = await listRes.json();
 
-    // 2. Fetch details for each item in parallel
     const detailedResults = await Promise.all(
       listData.results.map(async (item: { url: string }) => {
         const detailRes = await fetch(item.url);
@@ -28,7 +27,6 @@ export async function GET(request: Request) {
       })
     );
 
-    // Filter out any failed detail fetches
     const validResults = detailedResults.filter((r) => r !== null);
 
     return NextResponse.json({
