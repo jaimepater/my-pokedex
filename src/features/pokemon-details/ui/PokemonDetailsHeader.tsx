@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { typeBackgrounds } from '../utils/colors';
 import { cn } from '@/lib/utils';
+import { PokeBall } from '@/components/PokeBall';
 
 interface PokemonDetailsHeaderProps {
   id: number;
@@ -31,16 +32,7 @@ export function PokemonDetailsHeader({
       )}
     >
       <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
-        <svg
-          width="200"
-          height="200"
-          viewBox="0 0 100 100"
-          fill="white"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M50 0 C22.4 0 0 22.4 0 50 C0 77.6 22.4 100 50 100 C77.6 100 100 77.6 100 50 C100 22.4 77.6 0 50 0 Z M50 85 C30.7 85 15 69.3 15 50 C15 30.7 30.7 15 50 15 C69.3 15 85 30.7 85 50 C85 69.3 69.3 85 50 85 Z" />
-          <path d="M50 40 C44.5 40 40 44.5 40 50 C40 55.5 44.5 60 50 60 C55.5 60 60 55.5 60 50 C60 44.5 55.5 40 50 40 Z" />
-        </svg>
+        <PokeBall className="w-[200px] h-[200px] text-white" />
       </div>
       <div className="w-full flex items-baseline z-10 text-white py-2 gap-1 pr-2 justify-between">
         <div className={'flex items-center gap-1 '}>
