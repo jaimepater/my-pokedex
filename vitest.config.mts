@@ -20,6 +20,7 @@ export default defineConfig({
         'src/**/*.d.ts',
       ],
     },
+    fileParallelism: false,
   },
   resolve: {
     alias: {

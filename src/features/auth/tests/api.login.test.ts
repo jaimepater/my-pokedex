@@ -13,7 +13,7 @@ import next from 'next';
 // Initialize Next.js app for testing
 const dev = process.env.NODE_ENV !== 'production';
 const hostname = 'localhost';
-const port = 3001; // Use different port for testing
+const port = 0; // Use random available port for testing
 
 let app: any;
 let server: any;
