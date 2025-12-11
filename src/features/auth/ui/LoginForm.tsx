@@ -55,8 +55,6 @@ export function LoginForm() {
               {...register('username')}
               id="username"
               type="text"
-              autoComplete="username"
-              placeholder="admin"
               disabled={isLoading}
               aria-invalid={!!errors.username}
               aria-describedby={errors.username ? 'username-error' : undefined}
@@ -75,8 +73,6 @@ export function LoginForm() {
               {...register('password')}
               id="password"
               type="password"
-              autoComplete="current-password"
-              placeholder="••••••••"
               disabled={isLoading}
               aria-invalid={!!errors.password}
               aria-describedby={errors.password ? 'password-error' : undefined}

@@ -1,6 +1,6 @@
 import { useSearchParams } from 'next/navigation';
 import { useMemo } from 'react';
-import { Pokemon } from '../types/pokemon';
+import { Pokemon } from '@/lib/shared/types/pokemon';
 
 export function usePokemonFilterSort(pokemons: Pokemon[]) {
   const searchParams = useSearchParams();
@@ -10,7 +10,6 @@ export function usePokemonFilterSort(pokemons: Pokemon[]) {
   const processedPokemons = useMemo(() => {
     let result = [...pokemons];
 
-    // Filter by Search Query
     if (query) {
       result = result.filter(
         (p) =>
@@ -24,10 +23,6 @@ export function usePokemonFilterSort(pokemons: Pokemon[]) {
       switch (sort) {
         case 'name_asc':
           return a.name.localeCompare(b.name);
-        case 'name_desc':
-          return b.name.localeCompare(a.name);
-        case 'id_desc':
-          return b.id - a.id;
         case 'id_asc':
         default:
           return a.id - b.id;

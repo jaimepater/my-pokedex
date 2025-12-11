@@ -1,37 +1,34 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import useSWRMutation from 'swr/mutation';
 import { loginApi } from '../services/api';
 import type { LoginRequest, UseLoginReturn } from '../types';
 
 export function useLogin(): UseLoginReturn {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
-  const login = async (credentials: LoginRequest): Promise<void> => {
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      await loginApi(credentials);
-      router.push('/pokemons');
-    } catch (err) {
-      // Handle different error types
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError('Something went wrong. Please try again.');
-      }
-    } finally {
-      setIsLoading(false);
+  const { trigger, isMutating, error } = useSWRMutation(
+    '/api/login',
+    async (_url, { arg }: { arg: LoginRequest }) => {
+      return loginApi(arg);
+    },
+    {
+      onSuccess: () => {
+        router.push('/pokemons');
+      },
     }
-  };
+  );
 
   return {
-    login,
-    isLoading,
-    error,
+    login: async (credentials: LoginRequest) => {
+      await trigger(credentials);
+    },
+    isLoading: isMutating,
+    error: error
+      ? error instanceof Error
+        ? error.message
+        : 'Login failed'
+      : null,
   };
 }

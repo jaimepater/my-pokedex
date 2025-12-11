@@ -1,26 +1,21 @@
 import useSWRInfinite from 'swr/infinite';
-import { PokemonListResponse } from '../types/pokemon';
-
-const PAGE_LIMIT = 20;
+import { PokemonListResponse } from '@/lib/shared/types/pokemon';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const getKey = (pageIndex: number, previousPageData: PokemonListResponse) => {
-  if (previousPageData && !previousPageData.next) return null; // reached the end
+  if (previousPageData && !previousPageData.next) return null;
   const offset = pageIndex * 20;
-  return `/api/pokemons?offset=${offset}&limit=20`; // URL is the key
+  return `/api/pokemons?offset=${offset}&limit=20`;
 };
 
 export function usePokemons() {
-  const { data, error, size, setSize, isLoading } = useSWRInfinite(
-    getKey,
-    fetcher,
-    {
+  const { data, error, size, setSize, isLoading } =
+    useSWRInfinite<PokemonListResponse>(getKey, fetcher, {
       revalidateOnFocus: false,
       keepPreviousData: true,
       persistSize: true,
-    }
-  );
+    });
 
   const pokemons = data ? data.flatMap((page) => page.results) : [];
   const isError = error;

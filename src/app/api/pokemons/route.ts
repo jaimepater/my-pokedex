@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { PokemonListResponse } from '@/lib/shared/types/pokemon';
 
 const BASE_URL = 'https://pokeapi.co/api/v2';
 
@@ -29,10 +30,12 @@ export async function GET(request: Request) {
 
     const validResults = detailedResults.filter((r) => r !== null);
 
-    return NextResponse.json({
+    const response: PokemonListResponse = {
       ...listData,
       results: validResults,
-    });
+    };
+
+    return NextResponse.json(response);
   } catch (error) {
     console.error('API Error:', error);
     return NextResponse.json(

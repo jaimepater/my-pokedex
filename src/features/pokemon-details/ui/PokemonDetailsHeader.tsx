@@ -4,9 +4,8 @@ import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { typeBackgrounds } from '../utils/colors';
-import { cn } from '@/lib/utils';
 import { PokeBall } from '@/components/PokeBall';
+import { formatId } from '@/features/pokemon-details/utils/formatId';
 
 interface PokemonDetailsHeaderProps {
   id: number;
@@ -21,15 +20,11 @@ export function PokemonDetailsHeader({
 }: PokemonDetailsHeaderProps) {
   const router = useRouter();
 
-  const formatId = (id: number) => {
-    return `#${id.toString().padStart(3, '0')}`;
-  };
-
   return (
     <div
-      className={cn(
+      className={
         'relative flex flex-col items-center transition-colors duration-300'
-      )}
+      }
     >
       <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
         <PokeBall className="w-[200px] h-[200px] text-white" />
@@ -39,7 +34,7 @@ export function PokemonDetailsHeader({
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => router.back()}
+            onClick={() => router.push('/pokemons')}
             className="text-white hover:bg-white/20 hover:text-white"
           >
             <ArrowLeft className="h-6 w-6" />

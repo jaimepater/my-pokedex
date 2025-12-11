@@ -1,6 +1,5 @@
 'use client';
 
-import { usePokemonDetails } from '../hooks/usePokemonDetails';
 import { PokemonDetailsHeader } from './PokemonDetailsHeader';
 import { PokemonDetailsBadges } from './PokemonDetailsBadges';
 import { PokemonDetailsAbout } from './PokemonDetailsAbout';
@@ -11,13 +10,19 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AlertCircle } from 'lucide-react';
 import { typeBackgrounds } from '@/features/pokemon-details/utils/colors';
 import { cn } from '@/lib/utils';
+import useSWR from 'swr';
+import { PokemonDetails } from '@/lib/shared/types/pokemon';
+import { getPokemonDetails } from '@/features/pokemon-details/services/client';
 
 interface PokemonDetailsViewProps {
   id: string;
 }
 
 export function PokemonDetailsView({ id }: PokemonDetailsViewProps) {
-  const { data, isLoading, error } = usePokemonDetails(id);
+  const { data, error, isLoading } = useSWR<PokemonDetails>(
+    id ? `/api/pokemon/${id}` : null,
+    () => getPokemonDetails(id)
+  );
 
   if (isLoading) {
     return <PokemonDetailsSkeleton />;

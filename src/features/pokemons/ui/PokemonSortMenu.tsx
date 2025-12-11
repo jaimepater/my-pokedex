@@ -13,24 +13,22 @@ import { Label } from '@/components/ui/label';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Hash } from 'lucide-react';
+import { SortTypes } from '@/features/pokemons/types/sort';
 
 export function PokemonSortMenu() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  // Default to number sorting (mockup default)
   const currentSort = searchParams.get('sort') || 'id_asc';
   const [open, setOpen] = useState(false);
 
-  // Map complex sort keys to simple "Number" vs "Name" options for the radio group logic
   const getSortType = (sort: string) =>
     sort.startsWith('name') ? 'name' : 'number';
-  const [sortType, setSortType] = useState(getSortType(currentSort));
+  const [sortType, setSortType] = useState<SortTypes>(getSortType(currentSort));
 
-  const handleSortChange = (value: string) => {
+  const handleSortChange = (value: SortTypes) => {
     setSortType(value);
-    // Determine exact sort param. Mockup implies strictly "Number" vs "Name".
     const newSortParam = value === 'number' ? 'id_asc' : 'name_asc';
 
     const params = new URLSearchParams(searchParams);

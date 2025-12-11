@@ -1,16 +1,13 @@
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import { Pokemon } from '../types/pokemon';
+import { Pokemon } from '@/lib/shared/types/pokemon';
+import { formatId } from '@/lib/shared/utils/formatId';
 
 interface PokemonCardProps {
   pokemon: Pokemon;
 }
 
 export function PokemonCard({ pokemon }: PokemonCardProps) {
-  const formatId = (id: number) => {
-    return `#${id.toString().padStart(3, '0')}`;
-  };
-
   const imageUrl =
     pokemon.sprites.other?.['official-artwork'].front_default ||
     pokemon.sprites.front_default;

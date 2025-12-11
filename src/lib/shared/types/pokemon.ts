@@ -44,3 +44,25 @@ export interface PokemonDetails {
   stats: PokemonStat[];
   image: string;
 }
+
+export interface PokemonSprite {
+  front_default: string | null;
+  other?: {
+    'official-artwork': {
+      front_default: string | null;
+    };
+  };
+}
+
+export interface Pokemon {
+  id: number;
+  name: string;
+  sprites: PokemonSprite;
+}
+
+export interface PokemonListResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Pokemon[];
+}

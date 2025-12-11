@@ -1,35 +1,24 @@
 'use client';
 
 import { Progress } from '@/components/ui/progress';
-import { typeText } from '../utils/colors';
+import { typeBackgrounds, typeText } from '../utils/colors';
 import { cn } from '@/lib/utils';
-import { PokemonStat } from '../types';
+import { PokemonStat } from '@/lib/shared/types/pokemon';
+import { formatStatValue } from '@/features/pokemon-details/utils/formatStatValue';
+import { getProgressValue } from '@/features/pokemon-details/utils/getProgressValue';
+import { statLabels } from '@/features/pokemon-details/utils/statLabels';
 
 interface PokemonDetailsStatsProps {
   stats: PokemonStat[];
   primaryType: string;
 }
 
-const statLabels: Record<string, string> = {
-  hp: 'HP',
-  attack: 'ATK',
-  defense: 'DEF',
-  'special-attack': 'SATK',
-  'special-defense': 'SDEF',
-  speed: 'SPD',
-};
-
 export function PokemonDetailsStats({
   stats,
   primaryType,
 }: PokemonDetailsStatsProps) {
   const titleColorClass = typeText[primaryType] || 'text-gray-500';
-
-  // Helper to format stat value (e.g. 045)
-  const formatStatValue = (val: number) => val.toString().padStart(3, '0');
-
-  // Helper to normalize stat value for progress bar (assuming max 255 for base stats)
-  const getProgressValue = (val: number) => Math.min((val / 255) * 100, 100);
+  const backgroundColorClass = typeBackgrounds[primaryType] || 'bg-gray-200';
 
   return (
     <div className="px-6 pb-6 w-full">
@@ -56,10 +45,7 @@ export function PokemonDetailsStats({
               <Progress
                 value={getProgressValue(stat.value)}
                 className="h-2 flex-1"
-                indicatorClassName={cn(
-                  'bg-current',
-                  titleColorClass.replace('text-', 'bg-') // Map text color back to bg for the bar
-                )}
+                indicatorClassName={cn('bg-current', backgroundColorClass)}
               />
             </div>
           );
