@@ -9,79 +9,81 @@
  */
 :root {
   /* Pokémon Type Colors - Light Mode */
-  --type-normal: 168 165 153;
-  --type-fire: 255 156 84;
-  --type-water: 99 144 240;
-  --type-grass: 122 199 76;
-  --type-electric: 247 208 44;
-  --type-ice: 150 217 214;
-  --type-fighting: 194 46 40;
-  --type-poison: 163 62 161;
-  --type-ground: 226 191 101;
-  --type-flying: 169 143 243;
-  --type-psychic: 249 85 135;
-  --type-bug: 166 185 26;
-  --type-rock: 182 161 54;
-  --type-ghost: 115 87 151;
-  --type-dragon: 111 53 252;
-  --type-dark: 112 87 70;
-  --type-steel: 183 183 206;
-  --type-fairy: 214 133 173;
+  --type-normal: 170 166 127;
+  --type-fire: 245 125 49;
+  --type-water: 100 147 235;
+  --type-grass: 116 203 72;
+  --type-electric: 249 207 48;
+  --type-ice: 154 214 223;
+  --type-fighting: 193 34 57;
+  --type-poison: 164 62 158;
+  --type-ground: 222 193 107;
+  --type-flying: 168 145 236;
+  --type-psychic: 251 85 132;
+  --type-bug: 167 183 35;
+  --type-rock: 182 158 49;
+  --type-ghost: 112 85 155;
+  --type-dragon: 112 55 255;
+  --type-dark: 117 87 76;
+  --type-steel: 183 185 208;
+  --type-fairy: 230 158 172;
 
   /* Base UI Colors */
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --background: #EFEFEF;
+  --foreground: #212121;
+  --card: #FFFFFF;
+  --card-foreground: #212121;
+  --popover: #FFFFFF;
+  --popover-foreground: #212121;
 
   /* Semantic Colors - Pokémon Themed */
-  --primary: 247 208 44;
+  --primary: 249 207 48;
   /* Electric */
   --primary-foreground: 0 0 0;
-  --secondary: 99 144 240;
+  --secondary: 100 147 235;
   /* Water */
   --secondary-foreground: 255 255 255;
-  --muted: 168 165 153;
-  /* Normal */
-  --muted-foreground: 82 82 82;
-  --accent: 249 85 135;
+  --muted: 102 102 102;
+  /* Medium Grayscale */
+  --muted-foreground: 102 102 102;
+  --accent: 251 85 132;
   /* Psychic */
   --accent-foreground: 255 255 255;
-  --destructive: 255 156 84;
+  --destructive: 245 125 49;
   /* Fire */
   --destructive-foreground: 255 255 255;
-  --success: 122 199 76;
+  --success: 116 203 72;
   /* Grass */
   --success-foreground: 255 255 255;
-  --border: 228 228 231;
-  --input: 228 228 231;
-  --ring: 247 208 44;
+  --border: 224 224 224;
+  /* Light Grayscale */
+  --input: 224 224 224;
+  /* Light Grayscale */
+  --ring: 249 207 48;
   /* Electric */
 
   /* Chart Colors */
-  --chart-1: 255 156 84;
+  --chart-1: 245 125 49;
   /* Fire */
-  --chart-2: 99 144 240;
+  --chart-2: 100 147 235;
   /* Water */
-  --chart-3: 122 199 76;
+  --chart-3: 116 203 72;
   /* Grass */
-  --chart-4: 247 208 44;
+  --chart-4: 249 207 48;
   /* Electric */
-  --chart-5: 249 85 135;
+  --chart-5: 251 85 132;
   /* Psychic */
 
   /* Sidebar */
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: 247 208 44;
+  --sidebar: #EFEFEF;
+  --sidebar-foreground: #212121;
+  --sidebar-primary: 249 207 48;
   --sidebar-primary-foreground: 0 0 0;
-  --sidebar-accent: 168 165 153;
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: 247 208 44;
+  --sidebar-accent: 170 166 127;
+  --sidebar-accent-foreground: #212121;
+  --sidebar-border: 224 224 224;
+  --sidebar-ring: 249 207 48;
 }
 
 .dark {
